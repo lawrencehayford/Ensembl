@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading font-20">Welcome To our Gene Search Engine Portal</div>
-  <!--=========start dash card=================-->
+  <!--=========start dash card==================-->
   <div class="panel-body card-1 ">
     <div class="row">
       <form id="searchForm" novalidate>
