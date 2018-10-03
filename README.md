@@ -1,2 +1,2 @@
-# VoucherPool
-A voucher pool is a collection of (voucher) codes that can be used by customers (recipients) to get discounts in a web shop. Each code may only be used once.
+# Ensembl-Test-Lawrence Casely-Hayford
+ An application that takes in A gene symbol, A position in a protein sequence and An amino acid letter  and displays All transcripts from that gene with the given amino acid at the specified position
