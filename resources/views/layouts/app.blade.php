@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 
-<!-- Mirrored from www.g-axon.com/mouldifi-5.0/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Feb 2018 09:01:59 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Mouldifi - A fully responsive, HTML5 based admin theme">
-<meta name="keywords" content="Responsive, HTML5, admin theme, business, professional, Mouldifi, web design, CSS3">
-<title>{{ config('app.name', 'Laravel') }}</title>
+<meta name="description" content="ensembl">
+<meta name="keywords" content="ensembl">
+<title>{{ config('app.name', 'Ensembl') }}</title>
 <!-- Site favicon -->
 <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico' />
 <!-- /site favicon -->
@@ -61,67 +60,10 @@
 <script src="{{asset('js/jquery.min.js') }}"></script>
 <script src="{{asset('js/bootstrap.min.js') }}"></script>
 <script src="{{asset('js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('js/SetupRequest.js')}}"></script>
+<script src="{{asset('js/SendRequest.js')}}"></script>
 
 </body>
 
-<!-- Mirrored from www.g-axon.com/mouldifi-5.0/light/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 04 Feb 2018 09:01:59 GMT -->
-<script>
-$(document).ready(function() {
-    $('#voucherTable').DataTable();
-} );
 
-
-$.ajaxSetup({
-  headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  }
-});
-
-$("#btnCreate").click(function(){
-
-  //prompt before creating
-  if (!confirm("Are Sure you want to create a Coupon?"))
-  {
-  	return;
-  }
-	//get all form values
-  var recipient_id=$("#recipient_id").val();
-  var offerType=$("#offerType").val();
-  var expringdate=$("#expringdate").val();
-  if(recipient_id.length<1 || offerType.length<1 || expringdate.length<1)
-  {
-      throwMessage("Please Input all Fields");
-      return;
-  }
-
-	$.post("createcoupon",
-	        {
-	          recipient_id: recipient_id,
-            offerType: offerType,
-            expringdate: expringdate
-
-	        },
-	        function(data,status)
-          {
-            console.log(data);
-            if(data.success==0)
-            {
-              throwMessage(data.message);
-	        		window.location.reload();
-              return;
-
-	        	}
-            else
-            {
-              throwMessage(data.message);
-              return
-	        	}
-
-	        });
-});
-function throwMessage(message)
-{
-    alert(message);
-}
-</script>
 </html>

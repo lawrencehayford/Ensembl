@@ -11,4 +11,4 @@
 |
 */
 Route::get('/', 'WelcomeController@index');
-Route::post('createcoupon', 'CouponController@create')->name('createcoupon');
+Route::post('sendrequest', 'RequestController@index')->name('sendrequest');

@@ -4,9 +4,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-  		@include('includes.voucher-dash')
-     @include('includes.voucher-table')
-     @include('includes.add-voucher-modal')
+				@include('includes.ensembl-logo')
+  		@include('includes.ensembl-search')
+     @include('includes.ensembl-table')
 		</div>
 	</div>
 </div>

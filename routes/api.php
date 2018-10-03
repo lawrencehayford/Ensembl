@@ -16,8 +16,3 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-
-//COUPON API
-Route::post('validatevoucher', 'CouponController@validateCoupon');
-Route::post('getAllVoucherCodes', 'RecepientController@getAllVoucherCodes');
