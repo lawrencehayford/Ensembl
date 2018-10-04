@@ -5,27 +5,52 @@
     <div class="row">
       <form id="searchForm" novalidate>
 
-        <div class="col-md-4 center-text" >
-            <h3>Gene Symbol</h3>
-            <div><input type='text' id='gene' class="searchForm form-control"></div>
-            <div class="messages"></div>
+        <ul class="nav nav-tabs">
+           <li class="active"><a data-toggle="tab" href="#home">Search By Gene Symbol</a></li>
+           <li><a data-toggle="tab" href="#menu1">Search By HGVS string</a></li>
+         </ul>
+
+         <div class="tab-content">
+           <div id="home" class="tab-pane fade in active">
+               <br/>
+            <!--==========search by gene symbol===================-->
+             <div class="col-md-4 center-text" >
+                <h3>Gene Symbol</h3>
+                <div><input type='text' id='gene' class="searchForm form-control"></div>
+                <div class="messages"></div>
+
+             </div>
+
+             <div class="col-md-4 center-text" >
+                <h3>Position</h3>
+                <div><input type='text' id='position' class="searchForm form-control"></div>
+                <div class="messages"></div>
+             </div>
+
+              <div class="col-md-4 center-text" >
+                 <h3>Amino Acid Letter</h3>
+                 <div><input type='text' id='amino_acid' class="searchForm form-control"></div>
+                <div class="messages"></div>
+              </div>
+            <!--==========End search by gene symbol===================-->
+           </div>
+           <div id="menu1" class="tab-pane fade">
+               <br/>
+              <!--==========search by HGVS string===================-->
+              <div class="col-md-4 center-text" >
+                  <h3>Enter HGVS String</h3>
+                  <div><input type='text' id='hgvs' class="searchForm form-control"></div>
+                  <div class="messages"></div>
+
+               </div>
+              <!--==========End search by HGVS string===================-->
+           </div>
 
          </div>
 
-         <div class="col-md-4 center-text" >
-            <h3>Position</h3>
-            <div><input type='text' id='position' class="searchForm form-control"></div>
-            <div class="messages"></div>
-          </div>
 
-          <div class="col-md-4 center-text" >
-             <h3>Amino Acid Letter</h3>
-             <div><input type='text' id='amino_acid' class="searchForm form-control"></div>
-            <div class="messages"></div>
-          </div>
 
        </form>
-    </div>
 
     <div class="row">
         <div class="col-md-12 center-text" >
