@@ -3,14 +3,14 @@ $(document).ready(function() {
 } );
 
 //searching by gene symbol and  position  and amino acid letter
-$(document).on('keyup', 'input.firstsearch', function(ev) {
-  //setting ajax headers
-  validateAndSend("SYMBOL");
-
+$("#search").click(function() {
+    validateAndSend("SYMBOL");
 });
 
+
+
 //searching by HGVS STRING
-$(document).on('keyup', 'input.firstsearch', function(ev) {
+$(document).on('keyup', 'input.secondsearch', function(ev) {
   //setting ajax headers
   validateAndSend("HGVS");
 
@@ -26,6 +26,7 @@ function throwMessage(message)
 
 function validateAndSend(symbol){
 
+    //setting ajax headers
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -56,7 +57,7 @@ function validateAndSend(symbol){
   var method="GET";
   console.log(url);
   //sending request and getting response
-  send(url,method);
+  send(url,method,symbol);
   return;
 }
 function validateSymbolInputs(gene, position,amino_acid){

@@ -16,20 +16,26 @@
             <!--==========search by gene symbol===================-->
              <div class="col-md-4 center-text" >
                 <h3>Gene Symbol</h3>
-                <div><input type='text' id='gene' class="firstsearch form-control"></div>
+                <div><input type='text' id='gene' placeholder="eg: BRCA2" class="firstsearch form-control"></div>
                 <div class="messages"></div>
 
              </div>
 
-             <div class="col-md-4 center-text" >
+             <div class="col-md-3 center-text" >
                 <h3>Position</h3>
-                <div><input type='text' id='position' class="firstsearch form-control"></div>
+                <div><input type='text' id='position' placeholder="eg: 600" class="firstsearch form-control"></div>
                 <div class="messages"></div>
              </div>
 
-              <div class="col-md-4 center-text" >
+              <div class="col-md-3 center-text" >
                  <h3>Amino Acid Letter</h3>
-                 <div><input type='text' id='amino_acid' class="firstsearch form-control"></div>
+                 <div><input type='text' id='amino_acid' placeholder="eg: V" class="firstsearch form-control"></div>
+                <div class="messages"></div>
+              </div>
+
+              <div class="col-md-2 center-text" >
+                 <h3>.</h3>
+                 <div><input type='button' id='search' value='Search' class="btn btn-primary"></div>
                 <div class="messages"></div>
               </div>
             <!--==========End search by gene symbol===================-->
@@ -39,7 +45,7 @@
               <!--==========search by HGVS string===================-->
               <div class="col-md-4 center-text" >
                   <h3>Enter HGVS String</h3>
-                  <div><input type='text' id='hgvs' class="searchForm form-control"></div>
+                  <div><input type='text' id='hgvs' placeholder="eg: ENSP00000419060.2:p.Val600Glu " class="secondsearch form-control"></div>
                   <div class="messages"></div>
 
                </div>

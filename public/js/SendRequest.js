@@ -1,6 +1,6 @@
 
   //get all form values
-  function send(url,method)
+  function send(url,method,symbol)
   {
     $('#loader').show();
     $('#success').show();
@@ -16,7 +16,7 @@
               {
 
                   $('#loader').hide();
-                   processData(data);
+                   processData(data,symbol);
 
               });
 
@@ -28,10 +28,14 @@
   }
 
 
-  function processData(data){
+  function processData(data,symbol){
+    //decode json
     var obj=JSON.parse(data);
     if(obj.error) {$('#success').hide();$('#error').show();$('#error').html("<strong>Error! </strong>"+obj.error);setTimeout(function(){$('#error').hide();},4000);}
     $('#success').hide();
-    constructTable(obj);
+    //construct table
+    constructTable(obj,symbol);
+
+
 
   }
