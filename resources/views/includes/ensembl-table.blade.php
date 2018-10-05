@@ -8,20 +8,12 @@
         <table id="RequestTable" class="display" style="width:100%">
           <thead>
             <tr>
-              <th></th>
-              <th>Code</th>
-              <th>Used</th>
-              <th>Reciever</th>
-              <th>Used date</th>
+              <th>Search Result</th>
             </tr>
           </thead>
           <tbody>
               <tr>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
+              		@include('includes.ensembl-accordian')
               </tr>
 
 

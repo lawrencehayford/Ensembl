@@ -2,9 +2,8 @@ $(document).ready(function() {
     $('#RequestTable').DataTable();
 } );
 
-$('#loader').hide();
 
-$(document).on('keydown', 'input.searchForm', function(ev) {
+$(document).on('keyup', 'input.searchForm', function(ev) {
   //setting ajax headers
   validateAndSend();
 
@@ -29,10 +28,27 @@ function validateAndSend(){
   var gene=$("#gene").val();
   var position=$("#position").val();
   var amino_acid=$("#amino_acid").val();
-  var url="http://rest.ensembl.org/lookup/symbol/homo_sapiens/"+gene+".json?;expand=1";
+  if(!validateInputs(gene,position,amino_acid)) return;
+  var url="http://rest.ensembl.org/lookup/symbol/homo_sapiens/"+gene+"?content-type=application/json;expand=1";
   var method="GET";
-
+  console.log(url);
   //sending request and getting response
   send(url,method);
   return;
+}
+function validateInputs(gene, position,amino_acid){
+
+
+  if(gene.length<4){
+    return false;
+  }
+  if(position.length<3){
+    return false;
+  }
+
+  if(amino_acid.length<1){
+    return false;
+  }
+
+  return true;
 }

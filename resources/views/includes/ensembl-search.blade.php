@@ -4,7 +4,7 @@
   <div class="panel-body card-1 ">
     <div class="row">
       <form id="searchForm" novalidate>
-
+    	@include('includes.ensembl-messages')
         <ul class="nav nav-tabs">
            <li class="active"><a data-toggle="tab" href="#home">Search By Gene Symbol</a></li>
            <li><a data-toggle="tab" href="#menu1">Search By HGVS string</a></li>
@@ -51,13 +51,6 @@
 
 
        </form>
-
-    <div class="row">
-        <div class="col-md-12 center-text" >
-          <br/>
-          <img src="{{url('images/loader.gif')}}" id='loader'>
-        </div>
-    </div>
 
   </div>
   <!--=========end dash card=================-->
