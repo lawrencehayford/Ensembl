@@ -4,3 +4,28 @@
 
  ![](http://wizbizgh.com/ensembl1.PNG)
  ![](http://wizbizgh.com/ensembl2.PNG)
+
+# Getting started
+
+## Installation of laravel on Windows
+Laravel utilizes Composer to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
+
+Download composer from https://getcomposer.org/Composer-Setup.exe
+
+After installing composer, open your terminal and run
+composer global require "laravel/installer"
+
+## Running application
+
+Clone the repository
+
+git clone https://github.com/lawrencehayford/Ensembl.git
+
+Switch to the repo folder
+
+cd Ensembl
+
+Run application using this command
+php artisan serve
+
+Browse http://localhost:8000 to view application
