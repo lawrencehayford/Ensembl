@@ -3,10 +3,10 @@
 
 
 ## Search By Gene Symbol
- ![](http://wizbizgh.com/ensembl2.PNG)
+ ![](http://wizbizgh.com/ensembl_2.PNG)
 
 ## Search By HSVS String
-  ![](http://wizbizgh.com/ensembl1.PNG)
+  ![](http://wizbizgh.com/ensembl_1.PNG)
 
 
 # Getting started
