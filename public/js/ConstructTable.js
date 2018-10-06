@@ -13,6 +13,7 @@ function constructTable(obj,symbol){
         try{
           var url = getsequenceUrl(obj.Transcript[index].Translation.id);
           console.log("sequence url",url);
+          this.Asyc(false);
           $.post("sendrequest",
                   {
                     url: url ,
@@ -87,6 +88,7 @@ function constructTable(obj,symbol){
 
 
       }
+        this.Asyc(true);
         break;
     }
     case "HGVS":{
