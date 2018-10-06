@@ -5,7 +5,7 @@
 ## Search By Gene Symbol
  ![](http://wizbizgh.com/ensembl2.PNG)
 
- ## Search By HSVS String
+## Search By HSVS String
   ![](http://wizbizgh.com/ensembl1.PNG)
 
 
