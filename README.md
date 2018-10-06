@@ -15,6 +15,7 @@ Laravel utilizes Composer to manage its dependencies. So, before using Laravel, 
 Download composer from https://getcomposer.org/Composer-Setup.exe
 
 After installing composer, open your terminal and run
+
     composer global require "laravel/installer"
 
 ## Running application
@@ -28,6 +29,7 @@ Switch to the repo folder
     cd Ensembl
 
 Run application using this command
+
     php artisan serve
 
 Browse http://localhost:8000 to view application
