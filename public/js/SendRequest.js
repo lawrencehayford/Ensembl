@@ -1,8 +1,7 @@
 
-  //get all form values
+  //sending request
   function send(url,method,symbol)
   {
-    $('#loader').show();
     $('#success').show();
     $('#ensemblTable').html("");
     try{
@@ -14,13 +13,12 @@
               },
               function(data,status)
               {
-
-                  $('#loader').hide();
                    processData(data,symbol);
 
               });
 
     }catch(e){
+      $('#success').hide();
       alert(e.message);
       return;
     }

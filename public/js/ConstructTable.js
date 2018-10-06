@@ -11,7 +11,7 @@ function constructTable(obj,symbol){
 
         //getting sequence info
         try{
-          var url = "http://rest.ensembl.org/sequence/id/"+obj.Transcript[index].Translation.id+".json?type";
+          var url = getsequenceUrl(obj.Transcript[index].Translation.id);
           console.log("sequence url",url);
           $.post("sendrequest",
                   {
@@ -163,6 +163,6 @@ function constructTable(obj,symbol){
     }
 
   }
-
+  $('#success').hide();
   return;
 }

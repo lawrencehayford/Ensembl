@@ -1,3 +1,4 @@
+//setting up data Table
 $(document).ready(function() {
     $('#RequestTable').DataTable();
 } );
@@ -41,14 +42,14 @@ function validateAndSend(symbol){
         var position=$("#position").val();
         var amino_acid=$("#amino_acid").val();
         if(!validateSymbolInputs(gene,position,amino_acid)) return;
-        var url="http://rest.ensembl.org/lookup/symbol/homo_sapiens/"+gene+"?content-type=application/json;expand=1";
+        var url= getGeneSymbolUrl(gene);
 
         break;
     }
     case "HGVS":{
         var hgvs=$("#hgvs").val();
         if(!validateHgvsInputs(hgvs)) return;
-        var url="http://rest.ensembl.org/vep/human/hgvs/"+hgvs+"?content-type=application/json";
+        var url=getHgvsSymbolUrl(hgvs);
         break;
     }
 
@@ -59,30 +60,4 @@ function validateAndSend(symbol){
   //sending request and getting response
   send(url,method,symbol);
   return;
-}
-function validateSymbolInputs(gene, position,amino_acid){
-
-
-  if(gene.length<4){
-    return false;
-  }
-  if(position.length<3){
-    return false;
-  }
-
-  if(amino_acid.length<1){
-    return false;
-  }
-
-  return true;
-}
-
-function validateHgvsInputs(hgvs){
-
-
-  if(hgvs.length<25){
-    return false;
-  }
-
-  return true;
 }
