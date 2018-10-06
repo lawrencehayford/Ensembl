@@ -26,16 +26,3 @@
     }
 
   }
-
-
-  function processData(data,symbol){
-    //decode json
-    var obj=JSON.parse(data);
-    if(obj.error) {$('#success').hide();$('#error').show();$('#error').html("<strong>Error! </strong>"+obj.error);setTimeout(function(){$('#error').hide();},4000);}
-    $('#success').hide();
-    //construct table
-    constructTable(obj,symbol);
-
-
-
-  }

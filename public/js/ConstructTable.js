@@ -6,55 +6,85 @@ function constructTable(obj,symbol){
       for (var index in obj.Transcript)
       {
 
-        document.getElementById("ensemblTable").innerHTML+=
-                      "<tr>"+
-                      "<div class='panel panel-default' style='margin-bottom:5px;'>"+//start of panel default
-                      "<div class='panel-heading'>"+
-                      "<h5 class='panel-title accordian-color'>"+
-                      "<a data-toggle='collapse' data-parent='#accordion' href='#"+obj.Transcript[index].id+"'><u>"+obj.Transcript[index].id+"-"+obj.Transcript[index].display_name+"</u></a>"+
-                      "</h5><br/>"+
-                      "<a href='http://www.ensembl.org/id/"+obj.Transcript[index].id+"' target='_blank' class='btn-info right-align'>Visit website</a></div>"+
-                      "<div id='"+obj.Transcript[index].id+"' class='panel-collapse collapse "+collapse(index)+"'>"+ // start of collapse
-                      "<div class='panel-body'>"+//start of panel body
-                      //--================TRANSCRIPT=================--
+        //checking for protein
+        if(!checkForProtein(obj.Transcript[index]))continue;
 
-                      "<h4>Transcript</h4>"+
+        //getting sequence info
+        try{
+          var url = "http://rest.ensembl.org/sequence/id/"+obj.Transcript[index].Translation.id+".json?type";
+          console.log("sequence url",url);
+          $.post("sendrequest",
+                  {
+                    url: url ,
+                    method: "GET"
 
-                      "<div class='row'>"+
-                      "<div class='col-md-4' >Parent : <font class='accordian-text'>"+obj.Transcript[index].Parent+"</font></div>"+
-                      "<div class='col-md-4' >Strand : <font class='accordian-text'>"+obj.Transcript[index].strand+"</font></div>"+
-                      "<div class='col-md-4' >Display Name : <font class='accordian-text'>"+obj.Transcript[index].display_name+"</font></div>"+
-                      "</div>"+
+                  },
+                  function(data,status)
+                  {
+                      var sequenceObj=JSON.parse(data);
 
-                      "<div class='row'>"+
-                      "<div class='col-md-4' >Logical Name : <font class='accordian-text'>"+obj.Transcript[index].logic_name+"</font></div>"+
-                      "<div class='col-md-4' >Biotype : <font class='accordian-text'>"+obj.Transcript[index].biotype+"</font></div>"+
-                      "<div class='col-md-4' >Start : <font class='accordian-text'>"+obj.Transcript[index].start+"</font></div>"+
-                      "</div>"+
+                      //cehcking for amino letter at certain position
+                      if(CheckForAminoLetterAtCertianPosition(sequenceObj.seq)){
+                        document.getElementById("ensemblTable").innerHTML+=
+                                      "<tr>"+
+                                      "<div class='panel panel-default' style='margin-bottom:5px;'>"+//start of panel default
+                                      "<div class='panel-heading'>"+
+                                      "<h5 class='panel-title accordian-color'>"+
+                                      "<a data-toggle='collapse' data-parent='#accordion' href='#"+obj.Transcript[index].id+"'><u>"+obj.Transcript[index].id+"-"+obj.Transcript[index].display_name+"</u></a>"+
+                                      "</h5><br/>"+
+                                      "<a href='http://www.ensembl.org/id/"+obj.Transcript[index].id+"' target='_blank' class='btn-info right-align'>Visit website</a></div>"+
+                                      "<div id='"+obj.Transcript[index].id+"' class='panel-collapse collapse "+collapse(index)+"'>"+ // start of collapse
+                                      "<div class='panel-body'>"+//start of panel body
+                                      //--================TRANSCRIPT=================--
+
+                                      "<h4>Transcript</h4>"+
+
+                                      "<div class='row'>"+
+                                      "<div class='col-md-4' >Parent : <font class='accordian-text'>"+obj.Transcript[index].Parent+"</font></div>"+
+                                      "<div class='col-md-4' >Strand : <font class='accordian-text'>"+obj.Transcript[index].strand+"</font></div>"+
+                                      "<div class='col-md-4' >Display Name : <font class='accordian-text'>"+obj.Transcript[index].display_name+"</font></div>"+
+                                      "</div>"+
+
+                                      "<div class='row'>"+
+                                      "<div class='col-md-4' >Logical Name : <font class='accordian-text'>"+obj.Transcript[index].logic_name+"</font></div>"+
+                                      "<div class='col-md-4' >Biotype : <font class='accordian-text'>"+obj.Transcript[index].biotype+"</font></div>"+
+                                      "<div class='col-md-4' >Start : <font class='accordian-text'>"+obj.Transcript[index].start+"</font></div>"+
+                                      "</div>"+
 
 
-                      "<div class='row'>"+
-                      "<div class='col-md-4' >version : <font class='accordian-text'>"+obj.Transcript[index].version+"</font></div>"+
-                      "<div class='col-md-4' >Species : <font class='accordian-text'>"+obj.Transcript[index].species+"</font></div>"+
-                      "<div class='col-md-4' >Source : <font class='accordian-text'>"+obj.Transcript[index].source+"</font></div>"+
-                      "</div>"+
+                                      "<div class='row'>"+
+                                      "<div class='col-md-4' >version : <font class='accordian-text'>"+obj.Transcript[index].version+"</font></div>"+
+                                      "<div class='col-md-4' >Species : <font class='accordian-text'>"+obj.Transcript[index].species+"</font></div>"+
+                                      "<div class='col-md-4' >Source : <font class='accordian-text'>"+obj.Transcript[index].source+"</font></div>"+
+                                      "</div>"+
 
-                      "<div class='row'>"+
-                      "<div class='col-md-4' >End : <font class='accordian-text'>"+obj.Transcript[index].end+"</font></div>"+
-                      "<div class='col-md-4' >DBType : <font class='accordian-text'>"+obj.Transcript[index].db_type+"</font></div>"+
-                      "<div class='col-md-4' >Assembly Name : <font class='accordian-text'>"+obj.Transcript[index].assembly_name+"</font></div>"+
-                      "</div>"+
-
-
+                                      "<div class='row'>"+
+                                      "<div class='col-md-4' >End : <font class='accordian-text'>"+obj.Transcript[index].end+"</font></div>"+
+                                      "<div class='col-md-4' >DBType : <font class='accordian-text'>"+obj.Transcript[index].db_type+"</font></div>"+
+                                      "<div class='col-md-4' >Assembly Name : <font class='accordian-text'>"+obj.Transcript[index].assembly_name+"</font></div>"+
+                                      "</div>"+
 
 
 
-                      "</div>"; //end of panel body
 
-                      "</div>"+ //end of collapes
-                      "</div>"+//end of panel default
-                        "</div>"+
-                      "<tr/>";
+
+                                      "</div>"; //end of panel body
+
+                                      "</div>"+ //end of collapes
+                                      "</div>"+//end of panel default
+                                        "</div>"+
+                                      "<tr/>";
+                      }
+
+                  });
+
+        }catch(e){
+          alert(e.message);
+          return;
+        }
+
+
+
 
       }
         break;
@@ -135,11 +165,4 @@ function constructTable(obj,symbol){
   }
 
   return;
-}
-
-function collapse(index){
-  if(index == 0){
-    return "in";
-  }
-  return null;
 }

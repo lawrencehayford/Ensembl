@@ -63,6 +63,7 @@
 <script src="{{asset('js/SetupRequest.js')}}"></script>
 <script src="{{asset('js/SendRequest.js')}}"></script>
 <script src="{{asset('js/constructTable.js')}}"></script>
+<script src="{{asset('js/UsedFunctions.js')}}"></script>
 </body>
 
 
