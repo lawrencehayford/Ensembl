@@ -16,7 +16,7 @@
             <!--==========search by gene symbol===================-->
              <div class="col-md-4 center-text" >
                 <h3>Gene Symbol</h3>
-                <div><input type='text' id='gene' placeholder="eg: BRCA2" class="firstsearch form-control"></div>
+                <div><input type='text' id='gene' placeholder="eg: BRCA2"  style="text-transform:uppercase" class="firstsearch form-control"></div>
                 <div class="messages"></div>
 
              </div>
@@ -29,7 +29,7 @@
 
               <div class="col-md-3 center-text" >
                  <h3>Amino Acid Letter</h3>
-                 <div><input type='text' id='amino_acid' placeholder="eg: V" class="firstsearch form-control"></div>
+                 <div><input type='text' id='amino_acid'  style="text-transform:uppercase" placeholder="eg: V" class="firstsearch form-control"></div>
                 <div class="messages"></div>
               </div>
 

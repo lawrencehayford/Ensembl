@@ -49,7 +49,7 @@ function CheckForAminoLetterAtCertianPosition(data){
 
 function compareSquencePosition(squencePositionLetter,inputedAminoLetter){
 
-  if(squencePositionLetter==inputedAminoLetter){
+  if(squencePositionLetter==inputedAminoLetter.toUpperCase()){
     return true;
   }
   return false;
