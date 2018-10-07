@@ -16,12 +16,13 @@ class RequestFacade {
      *
      * @return void
      */
-
+     $CleanClass = new Clean();
      $this->curl = curl_init();
-     $this->setPostUrlAndMethod($url,$method);
+     $this->setPostUrlAndMethod($CleanClass->Check($url),$CleanClass->Check($method));
      $this->setUpCurl();
 
   }
+
   public function send()
   {
     /**

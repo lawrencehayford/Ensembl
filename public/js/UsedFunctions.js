@@ -9,7 +9,7 @@
         constructTable(obj,symbol);
     } catch(e) {
         $('#success').hide();
-        alert(e); // error in the above string (in this case, yes)!
+        alert('Error: '+ data); // error in the above string (in this case, yes)!
         return;
     }
 
