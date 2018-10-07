@@ -77,7 +77,7 @@ The ValidateRequest function checks if the inputs passed to the php server side 
         class CouponTest extends TestCase
         {
             /**
-             * test creating coupons
+             * test post request validation
              *
              * @return void
              */
