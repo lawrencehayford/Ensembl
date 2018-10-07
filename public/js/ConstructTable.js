@@ -31,7 +31,7 @@ function constructTable(obj,symbol){
                                       "<div class='panel panel-default' style='margin-bottom:5px;'>"+//start of panel default
                                       "<div class='panel-heading'>"+
                                       "<h5 class='panel-title accordian-color'>"+
-                                      "<a data-toggle='collapse' data-parent='#accordion' href='#"+obj.Transcript[index].id+"'><u>"+obj.Transcript[index].id+"-"+obj.Transcript[index].display_name+"</u></a>"+
+                                      "<a data-toggle='collapse' data-parent='#accordion' href='#"+obj.Transcript[index].id+"'><u>"+obj.Transcript[index].id+" "+obj.Transcript[index].display_name+"</u></a>"+
                                       "</h5><br/>"+
                                       "<a href='http://www.ensembl.org/id/"+obj.Transcript[index].id+"' target='_blank' class='btn-info right-align'>Visit website</a></div>"+
                                       "<div id='"+obj.Transcript[index].id+"' class='panel-collapse collapse "+collapse(index)+"'>"+ // start of collapse
@@ -101,7 +101,7 @@ function constructTable(obj,symbol){
                       "<div class='panel panel-default' style='margin-bottom:5px;'>"+//start of panel default
                       "<div class='panel-heading'>"+
                       "<h5 class='panel-title accordian-color'>"+
-                      "<a data-toggle='collapse' data-parent='#accordion' href='#"+obj[0].transcript_consequences[index].transcript_id+"'><u>"+obj[0].transcript_consequences[index].transcript_id+"-"+obj[0].transcript_consequences[index].gene_symbol+"</u></a>"+
+                      "<a data-toggle='collapse' data-parent='#accordion' href='#"+obj[0].transcript_consequences[index].transcript_id+"'><u>"+obj[0].transcript_consequences[index].transcript_id+" "+obj[0].transcript_consequences[index].gene_symbol+"</u></a>"+
                       "</h5><br/>"+
                       "<a href='http://www.ensembl.org/id/"+obj[0].transcript_consequences[index].transcript_id+"' target='_blank' class='btn-info right-align'>Visit website</a></div>"+
                       "<div id='"+obj[0].transcript_consequences[index].transcript_id+"' class='panel-collapse collapse "+collapse(index)+"'>"+ // start of collapse
