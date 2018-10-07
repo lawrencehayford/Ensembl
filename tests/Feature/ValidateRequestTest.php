@@ -10,7 +10,7 @@ use App\EnsemblClasses\Clean;
 class CouponTest extends TestCase
 {
     /**
-     * test creating coupons
+     * test post request validation
      *
      * @return void
      */
